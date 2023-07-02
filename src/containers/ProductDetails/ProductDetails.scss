@@ -1,0 +1,29 @@
+.product-details-page {
+    padding: 12px 30px;
+    margin: 10px 10px;
+    display: flex;
+    .details-image {
+        flex: 5;
+        padding: 6px;
+        .images {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+    .details-content {
+        flex: 6;
+        padding: 6px;
+        .details-title {
+            h3 {
+                margin: 0;
+                margin-bottom: 15px;
+            }
+        }
+        .details-variants {
+            div {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
