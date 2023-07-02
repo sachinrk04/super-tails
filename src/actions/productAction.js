@@ -39,3 +39,10 @@ export const fetchProductDetails = (id) => {
         })
     }
 };
+
+export const searchData = (text) => {
+    return {
+        type: actionTypes.SEARCH_ACTION,
+        payload: text,
+    };
+};

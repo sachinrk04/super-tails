@@ -1,6 +1,7 @@
 export { 
     fetchProducts,
-    fetchProductDetails
+    fetchProductDetails,
+    searchData
 } from "./productAction";
 
 export {

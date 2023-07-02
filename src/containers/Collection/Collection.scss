@@ -1,4 +1,12 @@
 .collection-page {
     padding: 12px 30px;
     margin: 10px 10px;
+    .input-search {
+        margin-bottom: 20px;
+        padding: 10px 30px;
+        input {
+            width: 50%;
+            height: 30px;
+        }
+    }
 }

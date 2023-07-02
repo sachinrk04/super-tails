@@ -8,12 +8,10 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.ADD_TO_CART:
             const found = state.cartList.some(el => el.id === action.payload.id);
-            if (!found) {
-                return { 
-                    ...state, 
-                    cartList: [{ ...action.payload }, ...state.cartList]
-                };
-            }
+            return { 
+                ...state, 
+                cartList: !found ? [{ ...action.payload }, ...state.cartList] : state.cartList
+            };
         case actionTypes.REMOVE_FROM_CART:
             return {
                 ...state,
