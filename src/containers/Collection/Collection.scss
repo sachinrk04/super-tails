@@ -9,4 +9,15 @@
             height: 30px;
         }
     }
+    .paginaion {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        div > span {
+            border: 1px solid;
+            padding: 4px 10px;
+            margin: 0px 10px;
+        }
+    }
 }

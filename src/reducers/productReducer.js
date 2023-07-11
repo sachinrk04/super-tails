@@ -4,6 +4,8 @@ const initialState = {
     productList: [],
     productStore: [],
     productDetails: {},
+    startNumber: 0,
+    endNumber: 50,
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,8 +13,8 @@ const reducer = (state = initialState, action) => {
         case actionTypes.PRODUCTS_LIST:
             return {
                 ...state,
-                productList: action.payload,
                 productStore: action.payload,
+                productList: action.payload.slice(state.startNumber, state.endNumber),
             };
 
         case actionTypes.PRODUCT_DETAILS:
@@ -27,6 +29,11 @@ const reducer = (state = initialState, action) => {
                     return item.title.toLowerCase().includes(action.payload.toLowerCase());
                 }),
             };
+        case actionTypes.PAGINATION_ACTION:
+            return {
+                ...state,
+                productList: state.productStore.slice(action.payload.itemStart,action.payload.itemEnd),
+            }
         default: return state;
     }
 }

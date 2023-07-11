@@ -5,7 +5,7 @@ import * as actions from "../../actions/index";
 import "./Collection.scss";
 
 const Collection = (props) => {
-    const { products, fetchProducts, searchData } = props;
+    const { products, fetchProducts, searchData, onPagination, startPage, endPage } = props;
     const [ search, setSearch] = useState("")
 
     useEffect(() => {
@@ -17,6 +17,13 @@ const Collection = (props) => {
         const value = event.target.value
         setSearch(value);
         searchData(value);
+    }
+
+    const onPages = (page) => {
+        console.log("page--->", page)
+        let start = startPage === 0 ? (startPage + 1) *  page : startPage;
+        let end = endPage * page;
+        onPagination(start, end);
     }
 
     return (
@@ -33,6 +40,13 @@ const Collection = (props) => {
             <div>
                 <Products products={products} />
             </div>
+            <div className="paginaion">
+                <div>
+                    <span onClick={() => onPages(1)} >1</span>
+                    <span onClick={() => onPages(2)}>2</span>
+                    <span onClick={() => onPages(3)}>3</span>
+                </div>
+            </div>
         </div>
     )
 }
@@ -40,6 +54,8 @@ const Collection = (props) => {
 const mapStateToProps = state => {
     return {
         products: state.products.productList,
+        startPage: state.products.startNumber,
+        endPage: state.products.endNumber,
     }
 }
   
@@ -47,6 +63,7 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchProducts: () => dispatch(actions.fetchProducts()),
         searchData: (text) => dispatch(actions.searchData(text)),
+        onPagination: (itemStart, itemEnd) => dispatch(actions.onPaginationAction(itemStart, itemEnd)),
     }
 }
 

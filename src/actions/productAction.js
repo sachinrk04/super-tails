@@ -46,3 +46,10 @@ export const searchData = (text) => {
         payload: text,
     };
 };
+
+export const onPaginationAction = (itemStart, itemEnd) => {
+    return {
+        type: actionTypes.PAGINATION_ACTION,
+        payload: {itemStart, itemEnd},
+    };
+};

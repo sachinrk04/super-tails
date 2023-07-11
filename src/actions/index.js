@@ -1,7 +1,8 @@
 export { 
     fetchProducts,
     fetchProductDetails,
-    searchData
+    searchData,
+    onPaginationAction
 } from "./productAction";
 
 export {
